@@ -28,3 +28,13 @@ app.route('/expenses', methods=['GET'])
 def get_expenses():
     expenses = Expense.query.all()
     return jsonify([expense.to_dict() for expense in expenses])
+
+@app.route('/expenses/<int:id>', methods=['Delte'])
+def delete_expense(id):
+    expense = Expense.query.get_or_404(id)
+    db.session.delete(expense)
+    db.session.commit()
+    return jsonify({'message': 'Expense deleted successfully'}), 204
+
+if __name__ == '__main__':
+    app.run(debug=True)
