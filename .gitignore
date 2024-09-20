@@ -1,0 +1,8 @@
+
+dist/
+*.log
+bin/
+include/
+lib/
+lib64/
+
